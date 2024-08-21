@@ -1,0 +1,15 @@
+@import "../../variables.scss";
+
+:host {
+  display: flex;
+}
+
+.icon {
+  &.white {
+    color: $white;
+  }
+
+  &.black {
+    color: $black;
+  }
+}
