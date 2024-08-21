@@ -11,5 +11,5 @@ export class IconComponent {
   name = input<string>('');
   color = input<string>('black');
 
-  iconClass = computed(() => `icon material-symbols-outlined`);
+  iconClass = computed(() => `icon material-symbols-outlined ${this.color()}`);
 }
