@@ -1,0 +1,21 @@
+@import "../../variables.scss";
+
+:host {
+  display: flex;
+}
+
+.text {
+  font-size: 1.6rem;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+
+  &.white {
+    color: $white;
+  }
+
+  &.black {
+    color: $black;
+  }
+}
