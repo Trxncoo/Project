@@ -1,9 +1,10 @@
 import { Component, computed, input } from '@angular/core';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-text',
   standalone: true,
-  imports: [],
+  imports: [TranslocoPipe],
   templateUrl: './text.component.html',
   styleUrl: './text.component.scss',
 })
