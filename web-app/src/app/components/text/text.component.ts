@@ -11,6 +11,7 @@ import { TranslocoPipe } from '@jsverse/transloco';
 export class TextComponent {
   content = input<string>('');
   color = input<string>('black');
+  variant = input<string>('');
 
-  textClass = computed(() => `text ${this.color()}`);
+  textClass = computed(() => `text ${this.color()} ${this.variant()}`);
 }
