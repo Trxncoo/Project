@@ -1,0 +1,6 @@
+<div [class]="formElementClass()">
+  <ng-content />
+  @if (formField()?.invalid()) {
+  <app-text [content]="formField()?.errorMessage()!" color="red" variant="warning" />
+  }
+</div>
