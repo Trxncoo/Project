@@ -10,4 +10,11 @@
   align-items: center;
   justify-content: center;
   gap: $space-full;
+
+  .login-form-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-full;
+  }
 }

@@ -4,11 +4,12 @@ import { FormService } from '../../services/form/form.service';
 import { StringInputComponent } from '../string-input/string-input.component';
 import { ButtonComponent } from '../button/button.component';
 import { TextComponent } from '../text/text.component';
+import { LinkComponent } from '../link/link.component';
 
 @Component({
   selector: 'app-login-form',
   standalone: true,
-  imports: [ReactiveFormsModule, StringInputComponent, ButtonComponent, TextComponent],
+  imports: [ReactiveFormsModule, StringInputComponent, ButtonComponent, TextComponent, LinkComponent],
   templateUrl: './login-form.component.html',
   styleUrl: './login-form.component.scss',
 })
