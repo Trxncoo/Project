@@ -1,0 +1,21 @@
+<div class="string-input-container">
+  @if (iconLeft()) {
+  <div class="string-input-icon left">
+    <app-icon [name]="iconLeft()" (click)="onIconLeftClick()" [color]="color()" />
+  </div>
+  }
+  <input
+    [class]="stringInputClass()"
+    [type]="variant()"
+    [placeholder]="placeholder() | transloco"
+    [value]="value"
+    [disabled]="isDisabled"
+    (input)="handleChange($event)"
+    (blur)="handleBlur()"
+  />
+  @if (iconRight()) {
+  <div class="string-input-icon right">
+    <app-icon [name]="iconRight()" (click)="onIconRightClick()" [color]="color()" />
+  </div>
+  }
+</div>

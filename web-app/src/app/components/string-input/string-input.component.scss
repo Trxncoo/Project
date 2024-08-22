@@ -1,0 +1,64 @@
+@import "../../variables.scss";
+
+:host {
+  display: flex;
+}
+
+.string-input-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  .string-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $space-half;
+    border-radius: $border-radius;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+
+    &.icon-left {
+      padding-left: $space-full + $space-half + $space-quarter;
+    }
+
+    &.icon-right {
+      padding-right: $space-full + $space-half + $space-quarter;
+    }
+
+    &.white {
+      background-color: $black;
+      border: 1px solid darken($white, 40%);
+      color: $white;
+
+      &:hover,
+      &:focus {
+        border-color: $white;
+      }
+    }
+
+    &.black {
+      background-color: $white;
+      border: 1px solid lighten($black, 40%);
+      color: $black;
+
+      &:hover,
+      &:focus {
+        border-color: $black;
+      }
+    }
+  }
+
+  .string-input-icon {
+    position: absolute;
+
+    &.left {
+      left: $space-half;
+    }
+
+    &.right {
+      right: $space-half;
+    }
+  }
+}

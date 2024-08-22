@@ -10,7 +10,7 @@
   justify-content: center;
   padding: $space-quarter $space-half;
   gap: $space-quarter;
-  border-radius: 4px;
+  border-radius: $border-radius;
   transition: all 0.2s ease-in-out;
 
   &:active {
@@ -18,20 +18,20 @@
   }
 
   &.white {
-    background-color: $white;
-    border: 1px solid lighten($black, 40%);
-
-    &:hover {
-      border-color: $black;
-    }
-  }
-
-  &.black {
     background-color: $black;
     border: 1px solid darken($white, 40%);
 
     &:hover {
       border-color: $white;
+    }
+  }
+
+  &.black {
+    background-color: $white;
+    border: 1px solid lighten($black, 40%);
+
+    &:hover {
+      border-color: $black;
     }
   }
 }
