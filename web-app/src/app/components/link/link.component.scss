@@ -5,14 +5,15 @@
 }
 
 .link {
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
   text-decoration: none;
   font-size: 0.8rem;
 
   &.white {
     color: darken($white, 40%);
 
-    &:hover {
+    &:hover,
+    &:active {
       color: $white;
     }
   }
@@ -20,7 +21,8 @@
   &.black {
     color: lighten($black, 40%);
 
-    &:hover {
+    &:hover,
+    &:active {
       color: $black;
     }
   }
