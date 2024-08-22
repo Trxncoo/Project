@@ -1,3 +1,3 @@
-import { Observable } from 'rxjs';
+import { Signal } from '@angular/core';
 
-export type FormFieldErrorMessage = Observable<string>;
+export type FormFieldErrorMessage = Signal<string>;

@@ -1,3 +1,3 @@
-import { Observable } from 'rxjs';
+import { Signal } from '@angular/core';
 
-export type FormFieldInvalid = Observable<boolean | undefined>;
+export type FormFieldInvalid = Signal<boolean | undefined>;

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { effect, Injectable, signal } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { combineLatest, map, Observable, startWith } from 'rxjs';
 import { IFormField } from './interfaces/form-field.interface';
@@ -13,40 +13,54 @@ import { FormMessages } from './types/form-messages.type';
 })
 export class FormService {
   getField(group: FormGroup, fieldName: string, messages: FormMessages): IFormField {
+    const invalid$ = this.getFieldInvalid(group, fieldName);
+    const errorMessage$ = this.getFieldErrorMessage(group, fieldName, messages);
+
     return {
-      invalid$: this.getFieldInvalid(group, fieldName),
-      errorMessage$: this.getFieldErrorMessage(group, fieldName, messages),
+      invalid: invalid$,
+      errorMessage: errorMessage$,
     };
   }
 
   getFieldInvalid(group: FormGroup, fieldName: string): FormFieldInvalid {
-    return group.get(fieldName)!.valueChanges.pipe(
-      startWith(group.get(fieldName)?.value),
-      map(() => {
-        const control = group.get(fieldName);
-        return control?.invalid && (control.dirty || control.touched);
-      })
-    )!;
+    const control = group.get(fieldName);
+    const invalidSignal = signal(control?.invalid && (control?.dirty || control?.touched));
+
+    effect(() => {
+      control?.valueChanges.subscribe(() => {
+        invalidSignal.set(control?.invalid && (control?.dirty || control?.touched));
+      });
+    });
+
+    return invalidSignal;
   }
 
   getFieldErrorMessage(group: FormGroup, fieldName: string, messages: FormMessages): FormFieldErrorMessage {
     const control = group.get(fieldName);
+    const errorMessageSignal = signal('');
 
-    if (!control) return new Observable<string>();
+    if (!control) return errorMessageSignal;
 
-    return combineLatest([
-      control.valueChanges.pipe(startWith(control.value)),
-      control.statusChanges.pipe(startWith(control.status)),
-    ]).pipe(
-      map(() => {
+    effect(() => {
+      const computeErrorMessage = () => {
         if (control.errors && (control.dirty || control.touched)) {
           const firstKey = Object.keys(control.errors)[0];
           return messages[firstKey] || 'Invalid field';
         } else {
           return '';
         }
-      })
-    );
+      };
+
+      control.valueChanges.subscribe(() => {
+        errorMessageSignal.set(computeErrorMessage());
+      });
+
+      control.statusChanges.subscribe(() => {
+        errorMessageSignal.set(computeErrorMessage());
+      });
+    });
+
+    return errorMessageSignal;
   }
 
   validateAllFormFields(group: FormGroup): void {
