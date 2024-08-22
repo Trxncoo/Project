@@ -1,0 +1,26 @@
+@import "../../variables.scss";
+
+:host {
+  display: flex;
+}
+
+.link {
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+
+  &.white {
+    color: darken($white, 40%);
+
+    &:hover {
+      color: $white;
+    }
+  }
+
+  &.black {
+    color: lighten($black, 40%);
+
+    &:hover {
+      color: $black;
+    }
+  }
+}
