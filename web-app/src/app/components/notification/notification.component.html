@@ -1,0 +1,8 @@
+<div class="notification-container">
+  @for (notification of notifications | async; track notification) {
+  <div [class]="notificationClass()">
+    <app-text [content]="notification.message" [color]="notification.color" />
+    <div class="progress-bar" [style.width.%]="notification.progress"></div>
+  </div>
+  }
+</div>

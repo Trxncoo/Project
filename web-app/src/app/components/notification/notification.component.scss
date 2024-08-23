@@ -1,0 +1,57 @@
+@import "../../variables.scss";
+
+.notification-container {
+  position: fixed;
+  top: 140px;
+  width: 300px;
+  z-index: 1000;
+  left: 50%;
+  transform: translateX(-50%);
+
+  .notification {
+    padding: 1rem;
+    padding-bottom: 0;
+    margin: 1rem auto;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    animation: fadeIn 0.5s ease-in-out forwards;
+
+    .progress-bar {
+      height: 4px;
+    }
+
+    &.white {
+      background-color: $black;
+      border: 1px solid $white;
+
+      .progress-bar {
+        background-color: $white;
+      }
+    }
+
+    &.black {
+      background-color: $white;
+      border: 1px solid $black;
+
+      .progress-bar {
+        background-color: $black;
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
