@@ -1,11 +1,15 @@
 <form [class]="loginFormClass()" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <app-string-input variant="email" placeholder="Email" formControlName="email" iconLeft="email" />
-  <app-string-input variant="password" placeholder="Password" formControlName="password" iconLeft="lock" />
+  <app-form-element [formField]="emailFormField">
+    <app-string-input variant="email" placeholder="Email" formControlName="email" iconLeft="email" />
+  </app-form-element>
+  <app-form-element [formField]="passwordFormField">
+    <app-string-input variant="password" placeholder="Password" formControlName="password" iconLeft="lock" />
+  </app-form-element>
   <div class="login-form-links">
-    <app-link content="I forgot my password" />
-    <app-link content="I don't have an account" />
+    <app-link content="I forgot my password" routerLink="/forgot-password" />
+    <app-link content="I don't have an account" routerLink="/register" />
   </div>
-  <app-button>
+  <app-button [disabled]="!loginForm.valid">
     <app-text content="Log In" />
   </app-button>
 </form>
