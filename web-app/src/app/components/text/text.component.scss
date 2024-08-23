@@ -16,11 +16,23 @@
     font-weight: 600;
   }
 
+  &.warning {
+    font-size: 0.9rem;
+  }
+
   &.white {
     color: $white;
   }
 
   &.black {
     color: $black;
+  }
+
+  &.red {
+    color: $red;
+  }
+
+  &.green {
+    color: $green;
   }
 }
