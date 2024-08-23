@@ -13,7 +13,7 @@
   border-radius: $border-radius;
   transition: all 0.2s ease-in-out;
 
-  &:active {
+  &:not(:disabled):active {
     scale: 0.95;
   }
 
@@ -21,8 +21,12 @@
     background-color: $black;
     border: 1px solid darken($white, 40%);
 
-    &:hover {
+    &:not(:disabled):hover {
       border-color: $white;
+    }
+
+    &:disabled {
+      background-color: lighten($black, 40%);
     }
   }
 
@@ -30,8 +34,12 @@
     background-color: $white;
     border: 1px solid lighten($black, 40%);
 
-    &:hover {
+    &:not(:disabled):hover {
       border-color: $black;
+    }
+
+    &:disabled {
+      background-color: darken($white, 40%);
     }
   }
 }

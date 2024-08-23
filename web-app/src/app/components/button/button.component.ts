@@ -9,6 +9,7 @@ import { Component, computed, input } from '@angular/core';
 })
 export class ButtonComponent {
   color = input<string>('black');
+  disabled = input<boolean>(false);
 
   buttonClass = computed(() => `button ${this.color()}`);
 }
