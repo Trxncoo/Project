@@ -1,0 +1,25 @@
+<form [class]="registerFormClass()" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <app-form-element [formField]="usernameFormField">
+    <app-string-input variant="text" placeholder="Username" formControlName="username" iconLeft="person" />
+  </app-form-element>
+  <app-form-element [formField]="emailFormField">
+    <app-string-input variant="email" placeholder="Email" formControlName="email" iconLeft="email" />
+  </app-form-element>
+  <app-form-element [formField]="passwordFormField">
+    <app-string-input variant="password" placeholder="Password" formControlName="password" iconLeft="lock" />
+  </app-form-element>
+  <app-form-element [formField]="passwordConfirmationFormField">
+    <app-string-input
+      variant="password"
+      placeholder="Password Confirmation"
+      formControlName="passwordConfirmation"
+      iconLeft="lock"
+    />
+  </app-form-element>
+  <div class="register-form-links">
+    <app-link content="I already have an account" routerLink="/login" />
+  </div>
+  <app-button [disabled]="!registerForm.valid">
+    <app-text content="Register" />
+  </app-button>
+</form>
