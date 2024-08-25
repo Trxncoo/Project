@@ -1,4 +1,4 @@
-import { Component, computed } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import { ImageComponent } from '../image/image.component';
 
 @Component({
@@ -9,5 +9,7 @@ import { ImageComponent } from '../image/image.component';
   styleUrl: './logo.component.scss',
 })
 export class LogoComponent {
+  size = input<number>(128);
+
   logoClass = computed(() => `logo`);
 }

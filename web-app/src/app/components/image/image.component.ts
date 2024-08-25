@@ -10,6 +10,7 @@ import { Component, computed, input } from '@angular/core';
 export class ImageComponent {
   path = input<string>('');
   size = input<number>(0);
+  variant = input<string>('');
 
-  imageClass = computed(() => `image`);
+  imageClass = computed(() => `image ${this.variant()}`);
 }

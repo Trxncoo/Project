@@ -11,7 +11,7 @@
   padding: $space-quarter $space-half;
   gap: $space-quarter;
   border-radius: $border-radius;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.1s ease;
 
   &:not(:disabled):active {
     scale: 0.95;

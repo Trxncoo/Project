@@ -1,0 +1,23 @@
+@import "../../variables.scss";
+
+:host {
+  display: flex;
+}
+
+.navbar-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-quarter;
+  transition: all 0.2s ease;
+
+  &:hover {
+    scale: 1.05;
+  }
+}
+
+@media (max-width: $media-phone) {
+  #text {
+    display: none;
+  }
+}

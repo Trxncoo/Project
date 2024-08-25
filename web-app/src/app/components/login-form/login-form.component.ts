@@ -6,6 +6,7 @@ import { ButtonComponent } from '../button/button.component';
 import { TextComponent } from '../text/text.component';
 import { LinkComponent } from '../link/link.component';
 import { FormElementComponent } from '../form-element/form-element.component';
+import { ILoginForm } from './interfaces/login-form.interface';
 
 @Component({
   selector: 'app-login-form',
@@ -38,7 +39,8 @@ export class LoginFormComponent {
     this.formService.handleSubmit(
       this.loginForm,
       (value) => {
-        console.log(value);
+        const form = value as ILoginForm;
+        console.log(form);
       },
       () => {
         console.log('Error');
